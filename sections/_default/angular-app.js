@@ -1,52 +1,45 @@
-/*jslint node: true, indent: 2, nomen:true, stupid:true */
-/*global window, document*/
+/* jslint node: true */
 'use strict';
-var di = require('di'),
-  angular = require('angular'),
-  app,
-  uiModules,
-  injector;
-
-require('angular-cookies');
+var di = require('di');
+var angular = require('angular');
+require('angular-animate');
+require('angular-aria');
+require('angular-file-upload-shim');
+require('angular-file-upload');
+require('angular-maps-directive');
+require('angular-maps-lodash');
+require('angular-material');
 require('angular-resource');
 require('angular-route');
 require('angular-css-injector');
 
-app = angular.module('bearded-avenger', [
-  'angular.css.injector',
-  'ngCookies',
-  'ngResource',
-  'ngRoute',
-  'ngTouch'
-]);
+var app = angular.module('bearded-avenger', [
+    'angularFileUpload',
+    'angular.css.injector',
+    'google-maps',
+    'ngAnimate',
+    'ngMaterial',
+    'ngResource',
+    'ngRoute',
+  ]);
 
-function routeConfig(routeProvider) {
-  routeProvider
-    .when('/403', {
-      templateUrl: '/html/_views/403.html'
-    })
-    .when('/404', {
-      templateUrl: '/html/_views/404.html'
-    });
+app.config( config );
 
-  routeProvider.otherwise({
-    redirectTo : '/404'
+config.$inject = ['$routeProvider', 'cssInjectorProvider'];
+function config (routeProvider, cssInjectorProvider) {
+  cssInjectorProvider.setSinglePageMode(true);
+  routeProvider.otherwise( {
+    redirectTo : '/'
   });
 }
 
-routeConfig.$inject = ['$routeProvider', 'cssInjectorProvider'];
-
-app.config(routeConfig);
-
-uiModules = {
+var uiModules = {
   angular   : [ 'value', angular ],
-  app       : [ 'value', app ],
-  document  : [ 'value', document ],
-  window    : [ 'value', window ]
+  app       : [ 'value', app ]
 };
 
 uiModules.uiModules = [ 'value', uiModules ];
 
-injector = new di.Injector([uiModules]);
+var injector = new di.Injector([uiModules]);
 
 /* modules browserify */

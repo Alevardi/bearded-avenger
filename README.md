@@ -1,2 +1,1 @@
-# bearded-avenger
 #HackCDMX webapp

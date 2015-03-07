@@ -3,79 +3,70 @@
   "version": "0.0.0",
   "main": "index.js",
   "dependencies": {
-    "baconjs": "~0.7.2",
-    "body-parser": "^1.4.3",
-    "bowser": "^0.7.2",
     "browserify": "~3.28.1",
     "browserify-shim": "^3.3.1",
-    "compression": "^1.0.8",
-    "cookie-parser": "^1.3.2",
-    "cookie-session": "=1.0.2",
     "di": "0.0.1",
-    "express": "^4.5.1",
-    "express-less": "0.0.6",
-    "i18next": "^1.7.4",
+    "express": "~3.2.6",
+    "express-less": "0.0.2",
     "jade": "~0.31.2",
-    "method-override": "^2.1.0",
-    "moment": "^2.8.3",
-    "morgan": "^1.1.1",
-    "passport": "*",
-    "passport-local": "*",
-    "ramda": "^0.10.0",
-    "request": "^2.48.0",
-    "restler": "git+https://github.com/danwrong/restler.git",
-    "sprintf": "^0.1.3",
+    "mapbox.js": "^1.6.4",
     "transformify": "~0.1.2",
-    "underscore": "~1.6.0",
-    "utf-8": "^0.1.1",
-    "utf8": "^2.0.0"
+    "underscore": "^1.6.0"
   },
   "scripts": {
     "test": "grunt"
   },
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-browserify": "^3.0.1",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-uglify": "^0.6.0",
-    "grunt-jasmine-node": "^0.2.1",
-    "grunt-jslint": "^1.1.12"
-  },
   "browser": {
-    "angular": "./bower_components/angular/angular.min.js",
-    "angular-cookies": "./bower_components/angular-cookies/angular-cookies.min.js",
+    "angular-animate": "./bower_components/angular-animate/angular-animate.min.js",
+    "angular-aria": "./bower_components/angular-aria/angular-aria.min.js",
+    "angular-file-upload-shim": "./bower_components/ng-file-upload/angular-file-upload-shim.min.js",
+    "angular-file-upload": "./bower_components/ng-file-upload/angular-file-upload.min.js",
+    "angular-maps-directive": "./bower_components/angular-google-maps/dist/angular-google-maps.min.js",
+    "angular-maps-lodash": "./bower_components/lodash/dist/lodash.underscore.min.js",
+    "angular-material": "./bower_components/angular-material/angular-material.min.js",
+    "angular-resource": "./bower_components/angular-resource/angular-resource.js",
+    "angular-route": "./bower_components/angular-route/angular-route.js",
+    "angular": "./bower_components/angular/angular.js",
     "angular-css-injector": "./bower_components/angular-css-injector/angular-css-injector.js",
-    "angular-resource": "./bower_components/angular-resource/angular-resource.min.js",
-    "angular-route": "./bower_components/angular-route/angular-route.min.js",
-    "angular-translate": "./bower_components/angular-translate/angular-translate.min.js",
-    "angular-sanitize": "./bower_components/angular-sanitize/angular-sanitize.min.js",
-    "angular-csv": "./bower_components/ng-csv/build/ng-csv.min.js",
+    "hammerjs": "./bower_components/hammerjs/hammer.min.js",
     "jquery": "./bower_components/jquery/dist/jquery.js"
   },
   "browserify-shim": {
     "jquery": "$",
+    "hammerjs": "Hammer",
     "angular": {
       "exports": "angular",
       "depends": [
         "jquery:$"
       ]
     },
+    "angular-maps-lodash": {
+      "depends": [
+        "angular:angular"
+      ]
+    },
+    "angular-file-upload-shim": {
+      "depends": [
+        "angular:angular"
+      ]
+    },
+    "angular-file-upload": {
+      "depends": [
+        "angular:angular"
+      ]
+    },
+    "angular-aria": {
+      "depends": [
+        "angular:angular"
+      ]
+    },
+    "angular-maps-directive": {
+      "depends": [
+        "angular:angular",
+        "angular-maps-lodash:_"
+      ]
+    },
     "angular-resource": {
-      "depends": [
-        "angular:angular"
-      ]
-    },
-    "angular-cookies": {
-      "depends": [
-        "angular:angular"
-      ]
-    },
-    "angular-css-injector": {
-      "depends": [
-        "angular:angular"
-      ]
-    },
-    "angular-translate": {
       "depends": [
         "angular:angular"
       ]
@@ -85,17 +76,28 @@
         "angular:angular"
       ]
     },
-    "angular-sanitize": {
+    "angular-animate": {
       "depends": [
-        "angular:angular",
-        "flat-ui"
+        "angular:angular"
       ]
     },
-    "angular-csv": {
+    "angular-material": {
       "depends": [
         "angular:angular",
-        "flat-ui"
+        "hammerjs:Hammer"
+      ]
+    },
+    "angular-css-injector": {
+      "depends": [
+        "angular:angular"
       ]
     }
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-browserify": "^1.3.1",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-clean": "^0.5.0"
   }
 }

@@ -1,0 +1,19 @@
+doctype html
+div(layout='vertical', layout-fill)
+  section(layout='horizontal', flex)
+    md-sidenav.md-sidenav-left.md-whiteframe-z2(layout='vertical')
+      md-toolbar.md-theme-green.headerSlideMenu
+        h3.md-toolbar-tools.kraken-background Bearded Avenger
+        md-tabs(selected = 'selectedIndex')
+          md-tab.md-theme-red(
+            label = 'Perfil de usuario'
+          )
+      md-content.dark-content(flex)
+          h1 HOLA SOY TU PERFIL
+    md-content(flex)
+      iframe(
+        width='100%'
+        height='100%'
+        frameborder='0'
+        src='https://a.tiles.mapbox.com/v4/chemonky.ld4l0ah8/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoiY2hlbW9ua3kiLCJhIjoiOW5sdmxNUSJ9.ZMJvjLpSnx_jadjAk3ir2A'
+      )
