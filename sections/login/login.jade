@@ -1,0 +1,53 @@
+.has-full-screen-bg
+  .upper-wrapper
+    header.header
+      .container
+        h1
+          a( href = '/#/' )
+            img( src = 'images/toLogoHeader.png' )
+
+    section.login-section.access-section.section
+      .container
+        .form-box.col-md-8.col-sm-12.col-sx-12.col-md-offset-2.col-sm-offset-0.xs-offset-0
+          .form-box-inner
+            h2.title.text-center Iniciar sesión
+            .row
+              .form-container.col-md-5
+                form.login-form( name = 'formLogin' )
+                  .form-group.email
+                    label.sr-only Usuario
+                    input.form-control.login-email(
+                      ng-model = 'user.username'
+                      placeholder = 'Usuario'
+                      required
+                    )
+                  .form-group.password
+                    label.sr-only Contraseña
+                    input.form-control.login-password(
+                      ng-model = 'user.password'
+                      type = 'password'
+                      placeholder = 'Contraseña'
+                      required
+                    )
+                  button.btn.btn-block.btn-cta-primary(
+                    ng-click = 'login()'
+                    ng-disabled = 'loading && formLogin.$invalid'
+                    ng-hide = 'loading'
+                  ) Iniciar Sesión
+                  .animation.center.text-center(
+                    ng-show = 'loading'
+                  )
+                    .square.s1.blacka
+                    .square.s2.greena
+                    .square.s3.yellowa
+                    .square.s4.reda
+                  br
+                  .alert.alert-danger(
+                    ng-show = 'errorInLogin'
+                    role='alert'
+                  )
+                    |  El usuario o contraseña que proporcionaste son erróneos
+                p.lead 
+                  | ¿No tienes cuenta en TutorOnline aún?
+                  br
+                  a.signup-link( href = '/#/registro' ) Crear cuenta ahora
