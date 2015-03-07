@@ -8,9 +8,17 @@ html(ng-app = 'bearded-avenger')
       href = '/css/app.css'
       rel = 'stylesheet'
     )
+    link(
+      href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css'
+      rel='stylesheet'
+    )
 
   body
     div( ng-view )
 
   script( src = '//maps.googleapis.com/maps/api/js?sensor=false' )
   script( src = '/js/app.min.js' )
+  script(src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js')
+  script.
+    L.mapbox.accessToken = 'pk.eyJ1IjoiY2hlbW9ua3kiLCJhIjoiOW5sdmxNUSJ9.ZMJvjLpSnx_jadjAk3ir2A';
+    
