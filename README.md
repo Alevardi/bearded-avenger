@@ -43,19 +43,19 @@ Para comenzar a contribuir a Bikingos-web:
 
 Clona este repositorio:
 
-`git clone https://github.com/Alevardi/bikingos-web
+`git clone https://github.com/Alevardi/bikingos-web`
 
 Instala sus dependencias:
 
-`npm install && bower install
+`npm install && bower install`
 
 Empaqueta:
 
-`grunt
+`grunt`
 
 Y ejecuta:
 
-`node index.js
+`node index.js`
 
 
 ###Despliegue:

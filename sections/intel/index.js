@@ -5,6 +5,50 @@ var apiUrl = 'http://188.166.7.238:8888/',
   rest = require('restler');
 
 module.exports = function (server) {
+
+  server.get('/v1/power-points', function (req, res) {
+    var url = apiUrl.concat('v1/power-points/'),
+    bacon = (function() {
+      var request = rest.get(url);
+      return Bacon.fromEventTarget(request, 'complete');
+    }());
+
+    bacon.onValue( function (data) {
+      console.log(data);
+      res.json(data.data);
+    });
+  });
+
+  server.get('/v1/bases/availability', function (req, res) {
+    var url = apiUrl.concat('v1/bases/availability'),
+    bacon = (function() {
+      var request = rest.get(url);
+      return Bacon.fromEventTarget(request, 'complete');
+    }());
+
+    console.log(url);
+
+    bacon.onValue( function (data) {
+      console.log(data);
+      res.json(data);
+    });
+  });
+
+  server.get('/v1/users/:user/friends', function (req, res) {
+    var url = apiUrl.concat('v1/users/bob/friends'),
+    bacon = (function() {
+      var request = rest.get(url);
+      return Bacon.fromEventTarget(request, 'complete');
+    }());
+
+    console.log(url);
+
+    bacon.onValue( function (data) {
+      console.log(data);
+      res.json(data);
+    });
+  });
+
   server.get('/v1/users', function (req, res) {
     var url = apiUrl.concat('v1/users/'),
       bacon = (function() {
@@ -18,7 +62,6 @@ module.exports = function (server) {
       console.log(data);
       res.json(data);
     });
-
   });
 
 };

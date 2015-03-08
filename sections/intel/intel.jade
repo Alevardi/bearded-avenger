@@ -2,14 +2,26 @@ doctype html
 div(layout='vertical', layout-fill)
   section(layout='horizontal', flex)
     md-sidenav.md-sidenav-left.md-whiteframe-z2(layout='vertical')
-      md-toolbar.md-theme-green.headerSlideMenu
-        h3.md-toolbar-tools.kraken-background Bearded Avenger
-        md-tabs(selected = 'selectedIndex')
-          md-tab.md-theme-red(
-            label = 'Perfil de usuario'
-          )
+      md-content.dark-content
+        div.marginCard(layout='vertical', layout-align="center center")
+          img.borderRadius(ng-src = '{{users[0].avatar}}')
+          h3.marginLittle BIKINGOS
+          
       md-content.dark-content(flex)
-          h1 HOLA SOY TU PERFIL
+        md-item-content(ng-repeat = "user in users | orderBy:'experience':true" )
+          div.marginCard(layout='row')
+            img.borderRadius(ng-src = '{{user.avatar}}')
+            p &nbsp
+            div(layout='vertical')
+              h4.marginLittle.whiteText(
+                ng-bind = '"   " + user.username ' 
+              )
+              md-progress-linear.venga(
+                md-mode='determinate', 
+                value='{{user.experience * 100 / user.nextLevel}}',
+                ng-class = '{"greenBar": user.team === "green", "redBar": user.team === "red" }'
+              )
+              h5.marginLittle( ng-bind = '"Nv:" + user.level + "   Exp " + user.experience ')
     md-content(flex)
       #map
         

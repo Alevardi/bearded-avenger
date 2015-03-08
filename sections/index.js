@@ -1,4 +1,4 @@
-/* jslint node: true */
+ /* jslint node: true */
 'use strict';
 var fs = require('fs');
 
