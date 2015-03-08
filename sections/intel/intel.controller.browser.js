@@ -8,8 +8,6 @@ module.exports = function (app) {
     cssInjector.add('/css/intel.css');
     scope.lol = 'lol';
 
-    L.mapbox.map('map', 'chemonky.ld4l0ah8');
-
   }
 
   app.controller( 'IntelController', intel );

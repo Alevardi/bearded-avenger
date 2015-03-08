@@ -1,21 +1,16 @@
 doctype html5
 html(ng-app = 'bearded-avenger')
   head
-    meta(charset='utf-8')
+    
     title Points as a heatmap
-    meta(name='viewport', content='initial-scale=1,maximum-scale=1,user-scalable=no')
+    meta(charset='utf-8')
     link(rel='stylesheet', href='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css')
-    script( src = '//maps.googleapis.com/maps/api/js?sensor=false' )
-    script(src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js')
     script(src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js')
-    script(src='https://rawgit.com/Leaflet/Leaflet.heat/gh-pages/dist/leaflet-heat.js')
-    script(src='http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.6/esri-leaflet.js')
-    script(src='http://cdn-geoweb.s3.amazonaws.com/esri-leaflet-heatmap-feature-layer/0.0.1-beta.1/esri-leaflet-heatmap-feature-layer.js')
     style.
-      body {margin:0;padding:0;}
-      #map {position: absolute;top:0;bottom:0;right:0;left:0;}
-    base( href = '/' )
-    title Bearded Avenger
+      #map { width: 800px; height: 600px; }
+      body { font: 16px/1.4 "Helvetica Neue", Arial, sans-serif; }
+      .ghbtns { position: relative; top: 4px; margin-left: 5px; }
+      a { color:#0077ff; }
     link(
       href = '/css/app.css'
       rel = 'stylesheet'
@@ -23,7 +18,9 @@ html(ng-app = 'bearded-avenger')
   body
     div( ng-view )
 
-
-  script( src = '/js/app.min.js' )
+  script(src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js')
+  script(src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-heat/v0.1.3/leaflet-heat.js')
+  script(src='http://leaflet.github.io/Leaflet.markercluster/example/realworld.10000.js')
   script.
     L.mapbox.accessToken = 'pk.eyJ1IjoiY2hlbW9ua3kiLCJhIjoiOW5sdmxNUSJ9.ZMJvjLpSnx_jadjAk3ir2A';
+  script( src = '/js/app.min.js' )

@@ -6,8 +6,6 @@ require('angular-animate');
 require('angular-aria');
 require('angular-file-upload-shim');
 require('angular-file-upload');
-require('angular-maps-directive');
-require('angular-maps-lodash');
 require('angular-material');
 require('angular-resource');
 require('angular-route');
@@ -16,7 +14,6 @@ require('angular-css-injector');
 var app = angular.module('bearded-avenger', [
     'angularFileUpload',
     'angular.css.injector',
-    'google-maps',
     'ngAnimate',
     'ngMaterial',
     'ngResource',
