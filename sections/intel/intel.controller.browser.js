@@ -13,7 +13,6 @@ module.exports = function (app) {
         [19.43159,-99.17151]
       ],
       heat = L.heatLayer(addressPoints,{radius: 100}).addTo(map);
-
   }
 
   app.controller( 'IntelController', intel );
