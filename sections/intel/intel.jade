@@ -2,9 +2,11 @@ doctype html
 div(layout='vertical', layout-fill)
   section(layout='horizontal', flex)
     md-sidenav.md-sidenav-left.md-whiteframe-z2(layout='vertical')
-      md-content.md-theme-yellow
-        h3.marginLittle.center-text Bearded Avenger
-        h4.marginLittle.center-text LeaderBoard
+      md-content.dark-content
+        div.marginCard(layout='row')
+          p &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          img.borderRadius.center-text(ng-src = '{{users[0].avatar}}')
+        h3.marginLittle.center-text BIKINGOS
           
       md-content.dark-content(flex)
         br
