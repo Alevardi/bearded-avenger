@@ -8,43 +8,20 @@ div(layout='vertical', layout-fill)
           
       md-content.dark-content(flex)
         br
-        md-item-content
-          div(layout='row')
-            img.borderRadius(src = "http://lorempixel.com/output/people-q-c-60-60-9.jpg")
+        md-item-content(ng-repeat = "user in users | orderBy:'experience':true" )
+          div.marginCard(layout='row')
+            img.borderRadius(ng-src = '{{user.avatar}}')
             p &nbsp
             div(layout='vertical')
-              h3.marginLittle(
-                ng-class = '{"greenText": "lol" === "lol" }'
+              h4.marginLittle.whiteText(
+                ng-bind = '"   " + user.username ' 
               )
-                | Ardroz Nv. 8
-              md-progress-linear.venga(md-mode='determinate', value='50')
-              h5.marginLittle
-                | Exp 8000
-        br
-        md-item-content
-          div(layout='row')
-            img.borderRadius(src = "http://lorempixel.com/output/animals-q-c-60-60-1.jpg")
-            p &nbsp
-            div(layout='vertical')
-              h3.marginLittle.redText(
-                ng-class = '{"redText": "lol" === "lol" }'
+              md-progress-linear.venga(
+                md-mode='determinate', 
+                value='{{user.experience * 100 / user.nextLevel}}',
+                ng-class = '{"greenBar": user.team === "green", "redBar": user.team === "red" }'
               )
-                &nbsp
-                | Chemonky Nv. 8
-                md-progress-linear.venga(md-mode='determinate', value='50')
-        br
-        md-item-content
-          div(layout='row')
-            img.borderRadius(src = "http://lorempixel.com/output/people-q-c-60-60-9.jpg")
-            p &nbsp
-            div(layout='vertical')
-              h3.marginLittle(
-                ng-class = '{"greenText": "lol" === "lol" }'
-              )
-                &nbsp
-                | Ardroz Nv. 8
-                md-progress-linear.venga(md-mode='determinate', value='50')
-          
+              h5.marginLittle( ng-bind = '"Nv:" + user.level + "   Exp " + user.experience ')
     md-content(flex)
       #map
         

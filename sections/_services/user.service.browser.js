@@ -12,6 +12,11 @@ module.exports = function (app) {
       query: {
         method: 'GET',
         isArray: false
+      },
+      friends: {
+        method: 'GET',
+        url: '/v1/users/:username/friends',
+        isArray: true
       }
     });
 
