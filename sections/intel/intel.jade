@@ -2,14 +2,49 @@ doctype html
 div(layout='vertical', layout-fill)
   section(layout='horizontal', flex)
     md-sidenav.md-sidenav-left.md-whiteframe-z2(layout='vertical')
-      md-toolbar.md-theme-green.headerSlideMenu
-        h3.md-toolbar-tools.kraken-background Bearded Avenger
-        md-tabs(selected = 'selectedIndex')
-          md-tab.md-theme-red(
-            label = 'Perfil de usuario'
-          )
+      md-content.md-theme-yellow
+        h3.marginLittle.center-text Bearded Avenger
+        h4.marginLittle.center-text LeaderBoard
+          
       md-content.dark-content(flex)
-          h1 HOLA SOY TU PERFIL
+        br
+        md-item-content
+          div(layout='row')
+            img.borderRadius(src = "http://lorempixel.com/output/people-q-c-60-60-9.jpg")
+            p &nbsp
+            div(layout='vertical')
+              h3.marginLittle(
+                ng-class = '{"greenText": "lol" === "lol" }'
+              )
+                | Ardroz Nv. 8
+              md-progress-linear.venga(md-mode='determinate', value='50')
+              h5.marginLittle
+                | Exp 8000
+        br
+        md-item-content
+          div(layout='row')
+            img.borderRadius(src = "http://lorempixel.com/output/animals-q-c-60-60-1.jpg")
+            p &nbsp
+            div(layout='vertical')
+              h3.marginLittle.redText(
+                ng-class = '{"redText": "lol" === "lol" }'
+              )
+                &nbsp
+                | Chemonky Nv. 8
+                md-progress-linear.venga(md-mode='determinate', value='50')
+        br
+        md-item-content
+          div(layout='row')
+            img.borderRadius(src = "http://lorempixel.com/output/people-q-c-60-60-9.jpg")
+            p &nbsp
+            div(layout='vertical')
+              h3.marginLittle(
+                ng-class = '{"greenText": "lol" === "lol" }'
+              )
+                &nbsp
+                | Ardroz Nv. 8
+                md-progress-linear.venga(md-mode='determinate', value='50')
+          
     md-content(flex)
       #map
         
