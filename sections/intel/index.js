@@ -19,6 +19,21 @@ module.exports = function (server) {
     });
   });
 
+  server.get('/v1/bases/availability', function (req, res) {
+    var url = apiUrl.concat('v1/bases/availability'),
+    bacon = (function() {
+      var request = rest.get(url);
+      return Bacon.fromEventTarget(request, 'complete');
+    }());
+
+    console.log(url);
+
+    bacon.onValue( function (data) {
+      console.log(data);
+      res.json(data);
+    });
+  });
+
   server.get('/v1/users/:user/friends', function (req, res) {
     var url = apiUrl.concat('v1/users/bob/friends'),
     bacon = (function() {

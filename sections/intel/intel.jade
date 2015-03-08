@@ -3,13 +3,11 @@ div(layout='vertical', layout-fill)
   section(layout='horizontal', flex)
     md-sidenav.md-sidenav-left.md-whiteframe-z2(layout='vertical')
       md-content.dark-content
-        div.marginCard(layout='row')
-          p &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-          img.borderRadius.center-text(ng-src = '{{users[0].avatar}}')
-        h3.marginLittle.center-text BIKINGOS
+        div.marginCard(layout='vertical', layout-align="center center")
+          img.borderRadius(ng-src = '{{users[0].avatar}}')
+          h3.marginLittle BIKINGOS
           
       md-content.dark-content(flex)
-        br
         md-item-content(ng-repeat = "user in users | orderBy:'experience':true" )
           div.marginCard(layout='row')
             img.borderRadius(ng-src = '{{user.avatar}}')
